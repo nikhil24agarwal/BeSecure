@@ -13,9 +13,23 @@ def home():
    return render_template('index.html')
 
     
-@app.route("/dec")
-def decryption():
-    return "hello"
+# @app.route("/dec")
+# def decryption():
+#     if request.method == "POST":
+#         form = request.form
+#         key = form['key']
+
+#         if request.files:
+#             image = request.files["image"]
+#             # print("hellooooooooooooooooooooooooooooooooooo")
+#             # print(app.config["IMAGE_UPLOADS"])
+#             # print(image.filename)
+#             # print(app.config["IMAGE_UPLOADS"]+ "/" + image.filename)
+#             # image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
+
+#             (key, 0, app.config["IMAGE_UPLOADS"] + "/" + image.filename ,  "hey my name is nikhil")
+#             return render_template('upload_image.html')
+#     return render_template('dec.html')
 
 
 
@@ -30,14 +44,14 @@ def encryption():
         if request.files:
             image = request.files["image"]
             print("hellooooooooooooooooooooooooooooooooooo")
-            print(app.config["IMAGE_UPLOADS"])
-            print(image.filename)
-            print(app.config["IMAGE_UPLOADS"]+ "/" + image.filename)
+            # print(app.config["IMAGE_UPLOADS"])
+            # print(image.filename)
+            # print(app.config["IMAGE_UPLOADS"]+ "/" + image.filename)
             image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
 
-            enc(key, 0, app.config["IMAGE_UPLOADS"] + "/" + image.filename ,  "hey my name is nikhil")
-            return render_template('upload_image.html')
-    return render_template("upload_image.html")
+            enc(key, 0, app.config["IMAGE_UPLOADS"] + "/" + image.filename , msg)
+            return render_template('index.html')
+    return render_template("index.html")
 
 
 

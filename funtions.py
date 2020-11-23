@@ -35,3 +35,6 @@ def enc(key, choice, img, text):
         cv2.imwrite("static/image/uploads/encrypted_img.jpg", x)
     return 
 
+
+
+
