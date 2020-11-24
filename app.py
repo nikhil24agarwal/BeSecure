@@ -5,6 +5,7 @@ app = Flask(__name__)
 import cv2
 import string
 from funtions import enc
+from funtions import dec
 
 app.config["IMAGE_UPLOADS"] = "C:/Users/Hp/Desktop/Projects/besure/static/image/uploads"
 
@@ -13,51 +14,44 @@ def home():
    return render_template('index.html')
 
     
-# @app.route("/dec")
-# def decryption():
-#     if request.method == "POST":
-#         form = request.form
-#         key = form['key']
-
-#         if request.files:
-#             image = request.files["image"]
-#             # print("hellooooooooooooooooooooooooooooooooooo")
-#             # print(app.config["IMAGE_UPLOADS"])
-#             # print(image.filename)
-#             # print(app.config["IMAGE_UPLOADS"]+ "/" + image.filename)
-#             # image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
-
-#             (key, 0, app.config["IMAGE_UPLOADS"] + "/" + image.filename ,  "hey my name is nikhil")
-#             return render_template('upload_image.html')
-#     return render_template('dec.html')
+@app.route("/decry" , methods=["GET", "POST"])
+def decryption():
+    # print(request.method)
+    if request.method == "POST":
+        form = request.form
+        key = form['key']
+        # print(form)
+        # print(request.files)
+        if request.files:
+            image = request.files["image"]
+           
+            # print("chuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu")
+            a = dec(key, app.config["IMAGE_UPLOADS"] + "/" + image.filename)
+            # print("prachuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu")
+            # print(a)
+            return render_template('index.html')
+    return render_template('index.html')
 
 
 
 @app.route("/encry", methods=["GET", "POST"])
 def encryption():
-    print("heloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
+    # print("heloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
 
     if request.method == "POST":
-        print(1)
         form = request.form
-        print(form)
-        print(2)
         key = form['key']
-        print(3)
         msg = form['msg']
-        print(3)
         
 
         if request.files:
-            print(4)
             image = request.files["image"]
-            print("hellooooooooooooooooooooooooooooooooooo")
             # print(app.config["IMAGE_UPLOADS"])
             # print(image.filename)
             # print(app.config["IMAGE_UPLOADS"]+ "/" + image.filename)
             image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
 
-            enc(key, 0, app.config["IMAGE_UPLOADS"] + "/" + image.filename , msg)
+            enc(key, msg, app.config["IMAGE_UPLOADS"] + "/" + image.filename)
             return render_template('index.html')
     return render_template("index.html")
 
