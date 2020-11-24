@@ -33,15 +33,23 @@ def home():
 
 
 
-@app.route("/enc", methods=["GET", "POST"])
-
+@app.route("/encry", methods=["GET", "POST"])
 def encryption():
+    print("heloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
+
     if request.method == "POST":
+        print(1)
         form = request.form
+        print(form)
+        print(2)
         key = form['key']
-        msg= form['msg']
+        print(3)
+        msg = form['msg']
+        print(3)
+        
 
         if request.files:
+            print(4)
             image = request.files["image"]
             print("hellooooooooooooooooooooooooooooooooooo")
             # print(app.config["IMAGE_UPLOADS"])
