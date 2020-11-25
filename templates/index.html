@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
+    <link rel="icon" href="{{ url_for('static', filename='image/besecure_logo.png') }}" type="image/icon type">
     <title>BeSecure</title>
 
 <!--
@@ -173,12 +173,12 @@ https://templatemo.com/tm-543-breezed
                           <div class="row">
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
-                                <input name="key"  placeholder="Key" required="">
+                                <input name="key1"  placeholder="Key1" required="">
                               </fieldset>
                             </div>
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
-                                <!-- <input name="phone" type="text" id="phone" placeholder="Message" required=""> -->
+                                <input name="key2"  placeholder="Key2(only integer)" required="">
                               </fieldset>
                             </div>
                             <div class="col-md-6 col-sm-12">
@@ -212,6 +212,7 @@ https://templatemo.com/tm-543-breezed
                             </div>
                           </div>
                         </form>
+                        <h1 style="margin-top: 10px;"> Image saved at path : {{path}}</h1>
                     </div>
                 </div>
             </div>
@@ -246,12 +247,13 @@ https://templatemo.com/tm-543-breezed
                           <div class="row">
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
-                                <input name="key"  placeholder="Key" required="">
+                                <input name="key1"  placeholder="Key1" required="">
                               </fieldset>
                             </div>
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
-                                <!-- <input name="phone" type="text" id="phone" placeholder="Message" required=""> -->
+                                <input name="key2"  placeholder="Key2(only integer)" required="">
+
                               </fieldset>
                             </div>
                             <div class="col-md-6 col-sm-12">
@@ -275,6 +277,7 @@ https://templatemo.com/tm-543-breezed
                             </div>
                           </div>
                         </form>
+                        <h1> {{a}}</h1>
                     </div>
                 </div>
             </div>
@@ -409,6 +412,12 @@ https://templatemo.com/tm-543-breezed
         });
 
     </script>
+    <!-- <script>
+      var b= {{a}};
+      if(b.length >= 0 ){
+        alert(b);
+      }
+    </script> -->
 
   </body>
 </html>

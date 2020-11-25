@@ -37,10 +37,10 @@ def enc(key, msg, img):
         
     img = img.split("/")
     img[-1] = img[-1].split(".")[0]
-    
+    img="/".join(img) + "_enc.png"
 
-    cv2.imwrite("/".join(img) + "_enc.png", x)
-    return
+    cv2.imwrite(img, x)
+    return img
 
 
 def dec(key, img):
